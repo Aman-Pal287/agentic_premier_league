@@ -13,7 +13,7 @@ function isRateLimited(err: unknown): boolean {
   return String(err).includes("429") || String(err).includes("Too Many Requests");
 }
 
-export function getGeminiModel(modelName = MODELS[0]) {
+export function getGeminiModel(modelName: (typeof MODELS)[number] = MODELS[0]) {
   const apiKey = process.env.GEMINI_API_KEY;
   if (!apiKey) return null;
 
