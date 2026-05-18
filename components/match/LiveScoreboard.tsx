@@ -5,7 +5,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMatch } from "@/context/MatchContext";
 import { getTeam } from "@/lib/mock/ipl-teams";
 import { motion } from "framer-motion";
-import { MapPin, Trophy } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { Landmark, Trophy } from "lucide-react";
 
 export function LiveScoreboard() {
   const { matchState, isLive, isPaused, lastBallEvent } = useMatch();
@@ -25,10 +26,10 @@ export function LiveScoreboard() {
         <CardHeader className="flex flex-row flex-wrap items-start justify-between gap-3 pb-2">
           <div>
             <div className="mb-1 flex items-center gap-2 text-xs text-slate-500">
-              <Trophy className="h-3.5 w-3.5" />
+              <AppIcon icon={Trophy} size={14} />
               {matchState.season}
               <span className="text-slate-600">·</span>
-              <MapPin className="h-3.5 w-3.5" />
+              <AppIcon icon={Landmark} size={14} />
               Wankhede
             </div>
             <CardTitle className="text-lg text-white sm:text-xl">

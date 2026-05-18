@@ -7,7 +7,8 @@ import { useMatch } from "@/context/MatchContext";
 import { PREDICTION_LABELS } from "@/lib/prediction/evaluate";
 import type { PredictionChoice } from "@/lib/types/match";
 import { motion, AnimatePresence } from "framer-motion";
-import { CircleDot, Target, TrendingUp, Zap } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { ArrowRight, Minus, MoveUpRight, XCircle } from "lucide-react";
 
 const CHOICES: {
   id: PredictionChoice;
@@ -16,24 +17,24 @@ const CHOICES: {
 }[] = [
   {
     id: "BOUNDARY",
-    icon: <Zap className="h-4 w-4" />,
+    icon: <AppIcon icon={MoveUpRight} size={17} />,
     className:
       "border-purple-500/40 bg-purple-500/10 hover:bg-purple-500/20 text-purple-300",
   },
   {
     id: "WICKET",
-    icon: <Target className="h-4 w-4" />,
+    icon: <AppIcon icon={XCircle} size={17} />,
     className: "border-red-500/40 bg-red-500/10 hover:bg-red-500/20 text-red-300",
   },
   {
     id: "DOT",
-    icon: <CircleDot className="h-4 w-4" />,
+    icon: <AppIcon icon={Minus} size={17} />,
     className:
       "border-slate-500/40 bg-slate-500/10 hover:bg-slate-500/20 text-slate-300",
   },
   {
     id: "SINGLE",
-    icon: <TrendingUp className="h-4 w-4" />,
+    icon: <AppIcon icon={ArrowRight} size={17} />,
     className: "border-blue-500/40 bg-blue-500/10 hover:bg-blue-500/20 text-blue-300",
   },
 ];

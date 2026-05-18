@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMatch } from "@/context/MatchContext";
 import { AnimatePresence, motion } from "framer-motion";
-import { Zap } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { Megaphone } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 interface Moment {
@@ -58,7 +59,7 @@ export function MomentCards() {
     <Card key={sessionKey} className="glass-card border-0 bg-transparent">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-sm font-medium text-slate-300">
-          <Zap className="h-4 w-4 text-amber-400" />
+          <AppIcon icon={Megaphone} size={17} className="text-amber-400" />
           AI Match Moments
           {loading && (
             <span className="ml-1 text-xs text-cyan-400 animate-pulse">

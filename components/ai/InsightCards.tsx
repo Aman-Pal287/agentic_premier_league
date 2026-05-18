@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMatch } from "@/context/MatchContext";
 import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { BarChart3 } from "lucide-react";
 import { useCallback, useEffect, useRef, useState } from "react";
 
 export function InsightCards() {
@@ -57,7 +58,7 @@ export function InsightCards() {
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between">
           <CardTitle className="flex items-center gap-2 text-sm font-medium text-slate-300">
-            <Sparkles className="h-4 w-4 text-cyan-400" />
+            <AppIcon icon={BarChart3} size={17} className="text-cyan-400" />
             AI Match Insights
           </CardTitle>
           {loading ? (

@@ -7,7 +7,8 @@ import { Progress } from "@/components/ui/progress";
 import { useMatch } from "@/context/MatchContext";
 import { QUIZ_QUESTIONS } from "@/lib/mock/quiz-questions";
 import { AnimatePresence, motion } from "framer-motion";
-import { Brain, SkipForward } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { ChevronsRight, ListChecks } from "lucide-react";
 import { useCallback, useEffect, useState } from "react";
 
 const TIMER_SECONDS = 15;
@@ -65,7 +66,7 @@ export function LiveQuiz() {
       <CardHeader className="pb-2">
         <div className="flex items-center justify-between gap-2">
           <CardTitle className="flex items-center gap-2 text-sm font-medium text-slate-300">
-            <Brain className="h-4 w-4 text-cyan-400" />
+            <AppIcon icon={ListChecks} size={17} className="text-cyan-400" />
             Live IPL Quiz
           </CardTitle>
           <Badge variant="outline" className="text-xs text-slate-400">
@@ -156,7 +157,7 @@ export function LiveQuiz() {
           onClick={goNext}
           className="flex w-full items-center justify-center gap-1 text-xs text-slate-600 hover:text-cyan-400 transition-colors"
         >
-          <SkipForward className="h-3 w-3" />
+          <AppIcon icon={ChevronsRight} size={14} />
           Demo: Next question
         </button>
       </CardContent>

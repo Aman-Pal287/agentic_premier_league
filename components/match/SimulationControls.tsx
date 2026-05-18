@@ -4,7 +4,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useMatch } from "@/context/MatchContext";
-import { Pause, Play, RotateCcw, Star } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { Medal, Pause, Play, RotateCcw } from "lucide-react";
 
 export function SimulationControls() {
   const {
@@ -22,7 +23,7 @@ export function SimulationControls() {
     <Card className="glass-card border-0 bg-transparent">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-sm font-medium text-slate-300">
-          <Star className="h-4 w-4 text-amber-400" />
+          <AppIcon icon={Medal} size={17} className="text-amber-400" />
           Your Session
         </CardTitle>
       </CardHeader>
@@ -53,7 +54,7 @@ export function SimulationControls() {
               onClick={resumeSimulation}
               className="flex-1 gap-1 border-cyan-500/30"
             >
-              <Play className="h-3.5 w-3.5" />
+              <AppIcon icon={Play} size={15} />
               Resume
             </Button>
           ) : (
@@ -64,7 +65,7 @@ export function SimulationControls() {
               disabled={matchState.status === "Completed"}
               className="flex-1 gap-1"
             >
-              <Pause className="h-3.5 w-3.5" />
+              <AppIcon icon={Pause} size={15} />
               Pause
             </Button>
           )}
@@ -74,7 +75,7 @@ export function SimulationControls() {
             onClick={resetSimulation}
             className="gap-1"
           >
-            <RotateCcw className="h-3.5 w-3.5" />
+            <AppIcon icon={RotateCcw} size={15} />
             Reset
           </Button>
         </div>

@@ -6,7 +6,8 @@ import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useMatch } from "@/context/MatchContext";
 import { motion } from "framer-motion";
-import { MessageCircle, Send } from "lucide-react";
+import { AppIcon } from "@/components/icons/app-icon";
+import { ArrowUpRight, Headphones } from "lucide-react";
 import { useRef, useState } from "react";
 
 const SUGGESTIONS = [
@@ -73,7 +74,7 @@ export function FanChat() {
     <Card key={sessionKey} className="glass-card neon-border border-0 bg-transparent">
       <CardHeader className="pb-2">
         <CardTitle className="flex items-center gap-2 text-sm font-medium text-slate-300">
-          <MessageCircle className="h-4 w-4 text-cyan-400" />
+          <AppIcon icon={Headphones} size={17} className="text-cyan-400" />
           AI Fan Chat
         </CardTitle>
       </CardHeader>
@@ -141,7 +142,7 @@ export function FanChat() {
             disabled={loading || !input.trim()}
             className="shrink-0 bg-cyan-600 hover:bg-cyan-500"
           >
-            <Send className="h-4 w-4" />
+            <AppIcon icon={ArrowUpRight} size={17} />
           </Button>
         </form>
       </CardContent>

@@ -3,7 +3,9 @@
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { useMatch } from "@/context/MatchContext";
-import { RotateCcw, Zap } from "lucide-react";
+import { CricketBallLogo } from "@/components/icons/cricket-ball-logo";
+import { AppIcon } from "@/components/icons/app-icon";
+import { RotateCcw } from "lucide-react";
 
 export function DashboardHeader() {
   const { matchState, isLive, isPaused, resetSimulation } = useMatch();
@@ -13,7 +15,7 @@ export function DashboardHeader() {
       <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-4 py-4 sm:px-6">
         <div className="flex items-center gap-3">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/20 neon-border">
-            <Zap className="h-5 w-5 text-cyan-400" />
+            <CricketBallLogo className="h-7 w-7" />
           </div>
           <div>
             <h1 className="text-lg font-bold tracking-tight text-white sm:text-xl">
@@ -59,7 +61,7 @@ export function DashboardHeader() {
             className="text-slate-500 hover:text-white"
             title="Reset demo"
           >
-            <RotateCcw className="h-4 w-4" />
+            <AppIcon icon={RotateCcw} size={16} />
           </Button>
         </div>
       </div>
