@@ -41,6 +41,7 @@ interface MatchContextValue {
   pauseSimulation: () => void;
   resumeSimulation: () => void;
   resetSimulation: () => void;
+  sessionKey: number;
 }
 
 const MatchContext = createContext<MatchContextValue | null>(null);
@@ -211,6 +212,7 @@ export function MatchProvider({ children }: { children: ReactNode }) {
         pauseSimulation,
         resumeSimulation,
         resetSimulation,
+        sessionKey: simKey,
       }}
     >
       {children}

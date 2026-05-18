@@ -1,6 +1,8 @@
 "use client";
 
 import { BallPrediction } from "@/components/engagement/BallPrediction";
+import { FanReactions } from "@/components/engagement/FanReactions";
+import { LiveQuiz } from "@/components/engagement/LiveQuiz";
 import { LiveScoreboard } from "@/components/match/LiveScoreboard";
 import { MomentumMeter } from "@/components/match/MomentumMeter";
 import { RecentBalls } from "@/components/match/RecentBalls";
@@ -28,8 +30,8 @@ export function MatchDashboard() {
 
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <PlaceholderCard title="AI Insights" subtitle="Step 7 — Gemini powered" />
-        <PlaceholderCard title="Live IPL Quiz" subtitle="Step 6 — Earn points" />
-        <PlaceholderCard title="Fan Reactions" subtitle="Step 6 — Send emoji" />
+        <LiveQuiz />
+        <FanReactions />
         <PlaceholderCard title="AI Moments" subtitle="Step 8 — Turning points" />
         <PlaceholderCard title="Fan Chat" subtitle="Step 8 — Ask the analyst" />
       </div>
