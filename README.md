@@ -1,36 +1,98 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# MatchMind AI
 
-## Getting Started
+**IPL second-screen companion** — watch the match on TV, engage on MatchMind AI with live simulation, Gemini-powered insights, predictions, quizzes, and fan reactions.
 
-First, run the development server:
+![Next.js](https://img.shields.io/badge/Next.js-16-black) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Gemini](https://img.shields.io/badge/Gemini-AI-4285F4)
+
+## Features
+
+- **Live Match Dashboard** — MI vs CSK death-overs chase with simulated ball-by-ball updates
+- **AI Match Insights** — Gemini-generated momentum, pressure & tactical bullets
+- **Ball Prediction** — Predict next ball (Boundary / Wicket / Dot / Single) and earn points
+- **Live IPL Quiz** — Timed trivia with instant feedback
+- **Fan Reactions** — Floating emoji reactions (🔥 😮 👏 💀)
+- **Match Momentum Meter** — Visual MI vs CSK momentum bar
+- **AI Match Moments** — Dramatic cards on key events (SIX, FOUR, WICKET)
+- **AI Fan Chat** — Ask the IPL analyst anything about the chase
+
+## Tech Stack
+
+- Next.js 15+ (App Router) · TypeScript · Tailwind CSS
+- shadcn/ui · Lucide React · Framer Motion (minimal)
+- Google Gemini API (`gemini-2.0-flash`)
+- Mock match data (no external cricket API)
+
+## Quick Start
 
 ```bash
+# Install dependencies
+npm install
+
+# Add your Gemini API key
+cp .env.example .env
+# Edit .env → GEMINI_API_KEY=your_key_here
+
+# Run dev server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000)
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Environment Variables
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Variable | Required | Description |
+|----------|----------|-------------|
+| `GEMINI_API_KEY` | Yes | Google AI Studio API key |
 
-## Learn More
+> If Gemini is unavailable, the app falls back to offline canned responses so demos never break.
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```
+app/
+  page.tsx              # Home — full dashboard
+  api/ai/               # Gemini route handlers
+components/
+  match/                # Scoreboard, momentum, dashboard
+  engagement/           # Prediction, quiz, reactions
+  ai/                   # Insights, moments, chat UI
+context/                # MatchProvider + simulation state
+lib/
+  mock/                 # IPL teams, events, quiz data
+  simulation/           # Match engine + momentum
+  ai/                   # Gemini prompts & fallbacks
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 90-Second Demo Script
 
-## Deploy on Vercel
+1. Open app → **MI vs CSK LIVE** chase at Wankhede
+2. Watch score update every few seconds (simulated)
+3. **Predict next ball** → wait → see points feedback
+4. Fire **fan reactions** 🔥
+5. Answer an **IPL quiz** question
+6. Read **AI Insights** updating
+7. Wait for a **SIX or WICKET** → **AI Moment** card appears
+8. Chat: *"Can MI still win from here?"*
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Use **Reset** (↻ top-right) to restart the demo anytime.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## API Routes
+
+| Route | Method | Body |
+|-------|--------|------|
+| `/api/ai/insights` | POST | `{ matchState }` |
+| `/api/ai/moments` | POST | `{ matchState, event }` |
+| `/api/ai/chat` | POST | `{ matchState, message }` |
+
+## Build & Deploy
+
+```bash
+npm run build
+npm start
+```
+
+Deploy to Vercel — add `GEMINI_API_KEY` in project environment settings.
+
+## License
+
+MIT — built for hackathon / demo purposes.

@@ -16,29 +16,29 @@ export function MatchDashboard() {
   const { matchState, eventIndex } = useMatch();
 
   return (
-    <div className="space-y-4">
-      <div className="grid gap-4 lg:grid-cols-3">
+    <div className="space-y-6">
+      <section className="grid gap-4 lg:grid-cols-3">
         <div className="space-y-4 lg:col-span-2">
           <LiveScoreboard />
           <RecentBalls balls={matchState.recentBalls} eventKey={eventIndex} />
         </div>
-
-        <div className="space-y-4">
+        <aside className="space-y-4">
           <BallPrediction />
           <MomentumMeter recentBalls={matchState.recentBalls} />
           <SimulationControls />
-        </div>
-      </div>
+        </aside>
+      </section>
 
-      <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      <section className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         <InsightCards />
         <LiveQuiz />
         <FanReactions />
         <MomentCards />
-        <div className="sm:col-span-2 lg:col-span-2">
-          <FanChat />
-        </div>
-      </div>
+      </section>
+
+      <section>
+        <FanChat />
+      </section>
     </div>
   );
 }
