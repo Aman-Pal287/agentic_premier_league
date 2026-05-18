@@ -1,10 +1,10 @@
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { MockDataPreview } from "@/components/dev/MockDataPreview";
+import { LiveSimulationPreview } from "@/components/dev/LiveSimulationPreview";
 
 export default function Home() {
   return (
     <DashboardShell>
-      <MockDataPreview />
+      <LiveSimulationPreview />
     </DashboardShell>
   );
 }
