@@ -1,10 +1,10 @@
 import { DashboardShell } from "@/components/layout/DashboardShell";
-import { LiveSimulationPreview } from "@/components/dev/LiveSimulationPreview";
+import { MatchDashboard } from "@/components/match/MatchDashboard";
 
 export default function Home() {
   return (
     <DashboardShell>
-      <LiveSimulationPreview />
+      <MatchDashboard />
     </DashboardShell>
   );
 }
